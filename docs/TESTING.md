@@ -174,3 +174,5 @@ Add to README:
 ![Tests](https://github.com/YOUR_USERNAME/obsidian-mcp/actions/workflows/test.yml/badge.svg)
 [![codecov](https://codecov.io/gh/YOUR_USERNAME/obsidian-mcp/branch/main/graph/badge.svg)](https://codecov.io/gh/YOUR_USERNAME/obsidian-mcp)
 ```
+
+

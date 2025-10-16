@@ -1,0 +1,27 @@
+node_modules/
+dist/
+*.log
+.DS_Store
+.env
+.env.local
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Test coverage
+coverage/
+.nyc_output/
+*.lcov
+junit.xml
+test-results/
+
+# Configuration files with personal paths
+obsidian-mcp.json
+
+# Test and demo files
+quick-test.js
+demo.js
+test-server.js
+TEST_RESULTS.md

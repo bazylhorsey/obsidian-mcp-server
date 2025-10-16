@@ -1,0 +1,28 @@
+{
+  "vaults": [
+    {
+      "name": "my-local-vault",
+      "type": "local",
+      "path": "/path/to/your/obsidian/vault",
+      "description": "Local vault - direct filesystem access to your Obsidian folder"
+    },
+    {
+      "name": "my-cloud-vault",
+      "type": "remote",
+      "url": "https://your-obsidian-sync-server.com/api",
+      "apiKey": "your-api-key-here",
+      "syncInterval": 60000,
+      "description": "Self-hosted cloud vault - connects to your own sync server (like Obsidian Sync alternative, CouchDB, etc.)"
+    }
+  ],
+  "obsidianApi": {
+    "restApiUrl": "http://localhost:27124",
+    "apiKey": "your-local-rest-api-key",
+    "vaultName": "my-local-vault",
+    "description": "OPTIONAL: Only needed if you want to control Obsidian app (open notes in app, execute commands). Requires 'Local REST API' plugin installed in Obsidian."
+  },
+  "server": {
+    "name": "obsidian-mcp-server",
+    "version": "1.0.0"
+  }
+}

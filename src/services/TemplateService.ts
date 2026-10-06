@@ -13,6 +13,7 @@ import type {
 } from '../types/template.js';
 import type { VaultOperationResult } from '../types/index.js';
 import { parseMarkdown } from '../utils/markdown.js';
+import { resolveVaultPath } from '../utils/paths.js';
 
 export class TemplateService {
   private config: TemplateConfig;
@@ -80,7 +81,7 @@ export class TemplateService {
    */
   async getTemplate(vaultPath: string, templatePath: string): Promise<VaultOperationResult<Template>> {
     try {
-      const fullPath = path.join(vaultPath, templatePath);
+      const fullPath = resolveVaultPath(vaultPath, templatePath);
       const content = await fs.readFile(fullPath, 'utf-8');
       const parsed = parseMarkdown(content);
 
@@ -175,7 +176,7 @@ export class TemplateService {
       }
 
       // Write to target path
-      const fullTargetPath = path.join(vaultPath, targetPath);
+      const fullTargetPath = resolveVaultPath(vaultPath, targetPath);
 
       // Ensure directory exists
       await fs.mkdir(path.dirname(fullTargetPath), { recursive: true });

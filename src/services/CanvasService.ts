@@ -16,6 +16,7 @@ import type {
   CANVAS_COLORS
 } from '../types/canvas.js';
 import type { VaultOperationResult } from '../types/index.js';
+import { resolveVaultPath } from '../utils/paths.js';
 
 export interface CreateNodeOptions {
   id?: string;
@@ -63,7 +64,7 @@ export class CanvasService {
    */
   async readCanvas(vaultPath: string, canvasPath: string): Promise<VaultOperationResult<CanvasData>> {
     try {
-      const fullPath = path.join(vaultPath, canvasPath);
+      const fullPath = resolveVaultPath(vaultPath, canvasPath);
       const content = await fs.readFile(fullPath, 'utf-8');
       const data: CanvasData = JSON.parse(content);
 
@@ -85,7 +86,7 @@ export class CanvasService {
     data: CanvasData
   ): Promise<VaultOperationResult<void>> {
     try {
-      const fullPath = path.join(vaultPath, canvasPath);
+      const fullPath = resolveVaultPath(vaultPath, canvasPath);
 
       // Ensure directory exists
       await fs.mkdir(path.dirname(fullPath), { recursive: true });
